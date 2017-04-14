@@ -11,7 +11,7 @@ def get_ratings_and_jokes(filepath='data/ratings.dat'):
     joke_ids = []
 
     with open('data/jokes.dat','r') as f:
-        exp = r'([0-9]+):'
+        exp = r'([0-9]+):$'
         matcher = re.compile(exp)
         current_joke_html = ''
         current_joke_id = None
@@ -31,9 +31,10 @@ def get_ratings_and_jokes(filepath='data/ratings.dat'):
                 current_joke_id = int(match.group(1))
             else:
                 current_joke_html += l
+                # print current_joke_html
 
     jokes_df = pd.DataFrame({
-        'joke_text': joke_text,
+        'joke_text': jokes,
         'joke_id': joke_ids
     })
 
