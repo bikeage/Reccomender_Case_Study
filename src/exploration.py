@@ -2,8 +2,11 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import re
 
-def get_ratings_and_jokes():
-    ratings_df = pd.read_csv('data/ratings.dat', delimiter='\t')
+def get_ratings_and_jokes(filepath='data/ratings.dat'):
+    '''
+    filepath likely this:  '../data/ratings.dat'
+    '''
+    ratings_df = pd.read_csv(filepath, delimiter='\t')
     jokes = []
     joke_ids = []
 
