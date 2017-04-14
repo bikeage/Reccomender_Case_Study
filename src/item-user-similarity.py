@@ -17,7 +17,7 @@ def get_data_as_sframe():
     '''
     Get the data
     '''
-    ratings_df, jokes_df, test_df = ex.get_ratings_and_jokes()
+    ratings_df, jokes_df = ex.get_ratings_and_jokes()
     test_df = pd.read_csv('data/sample_submission.csv')
 
     #create the SFrame
@@ -35,8 +35,10 @@ def get_model():
     '''
     m = graphlab.recommender.create(sdf, user_id='user_id', item_id='joke_id')
 
+    return m
 
-def recommend_jokes_for_users(u_list, k=5): # Run predict on test set
+
+def recommend_jokes_for_users(u_list=[1,2], k=5): # Run predict on test set
     '''
     input:  list of users
     return  sfeame of list of recommndations users
@@ -51,3 +53,5 @@ def recommend_jokes_for_users(u_list, k=5): # Run predict on test set
 # print results
 
 # plot some data
+
+ratings_df, jokes_df, test_df = get_data_as_sframe()
