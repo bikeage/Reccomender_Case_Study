@@ -9,7 +9,7 @@ import exploration as ex
 #df = pd.read_table('../data/ratings.dat')
 
 # test set
-u1 = ratings_df[ratings_df['user_id'] == 1].sort('joke_id')
+#u1 = ratings_df[ratings_df['user_id'] == 1].sort('joke_id')
 
 
 
@@ -20,7 +20,7 @@ def get_data_as_sframe():
     ratings_df, jokes_df, test_df = ex.get_ratings_and_jokes()
     test_df = pd.read_csv('data/sample_submission.csv')
 
-    create the SFrame
+    #create the SFrame
     rsdf = graphlab.SFrame(ratings_df)
     tsdf = graphlab.SFrame(test_df)
 
