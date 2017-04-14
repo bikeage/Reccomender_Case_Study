@@ -2,15 +2,15 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import re
 
-def get_ratings_and_jokes(filepath='data/ratings.dat'):
+def get_ratings_and_jokes(ratings_filepath='data/ratings.dat', jokes_filepath='data/jokes.dat'):
     '''
     filepath likely this:  '../data/ratings.dat'
     '''
-    ratings_df = pd.read_csv(filepath, delimiter='\t')
+    ratings_df = pd.read_csv(ratings_filepath, delimiter='\t')
     jokes = []
     joke_ids = []
 
-    with open('data/jokes.dat','r') as f:
+    with open(jokes_filepath,'r') as f:
         exp = r'([0-9]+):$'
         matcher = re.compile(exp)
         current_joke_html = ''
